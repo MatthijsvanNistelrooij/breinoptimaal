@@ -52,7 +52,7 @@ const Cart = () => {
           onClick={() => setShowCart(false)}
         >
           <AiOutlineLeft />
-          <span className="heading">Your Cart</span>
+          <span className="heading">Winkelmandje</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
