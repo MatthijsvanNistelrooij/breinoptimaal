@@ -544,7 +544,7 @@ span.text-red {
 .success-wrapper,
 .cancel-wrapper {
   min-height: 60vh;
-  margin-left: -20px;
+  margin-left: -60px;
   margin-top: 50px;
 }
 .success,
