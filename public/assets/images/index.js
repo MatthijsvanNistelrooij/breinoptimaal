@@ -17,6 +17,7 @@ import vanille from "./vanille.png"
 import banaankaneel from "./banaan-kaneel.png"
 import pumpkinspice from "./pumpkin-spice.png"
 import choco from "./choco.png"
+import no_image from "./no_image.jpg"
 
 export {
   vector,
@@ -36,4 +37,5 @@ export {
   speculaas,
   pumpkinspice,
   vanille,
+  no_image,
 }

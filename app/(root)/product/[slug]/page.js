@@ -31,6 +31,7 @@ import {
   banaankaneel,
   info,
   oats,
+  no_image,
 } from "../../../../public/assets/images"
 
 const fetchProductAndRelated = async (slug) => {
@@ -84,12 +85,16 @@ const ProductDetails = ({ params }) => {
       <div className="product-detail-container">
         <div className="info-container">
           <div className="image-container">
-            {image && image[index] && (
+            {image && image[index] ? (
               <img
                 src={urlFor(image[index]).url()}
                 className="product-detail-image"
                 alt={name || "Product Image"}
               />
+            ) : (
+              <div className="shadow-div">
+                <Image src={no_image} alt="img" width={450} height={450} />
+              </div>
             )}
             <div className="smaller-image-container">
               <div className="small-image">

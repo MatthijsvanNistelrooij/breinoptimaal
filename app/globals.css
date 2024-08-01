@@ -826,6 +826,7 @@ span.text-red {
   margin-top: 5px;
   overflow: auto;
   margin-right: 50px;
+  margin-bottom: 30px;
 }
 
 .info-section {
@@ -1035,4 +1036,8 @@ span.text-red {
 .faq-icon {
   font-size: 1.5ch;
   margin-top: 0px;
+}
+
+.image-loading {
+  min-width: 400px;
 }
