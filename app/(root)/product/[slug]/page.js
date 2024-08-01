@@ -369,7 +369,7 @@ const ProductDetails = ({ params }) => {
           </div>
         </div>
 
-        <h2>You may also like</h2>
+        <h2>Anderen kochten ook:</h2>
         <div className="marquee">
           <div className="maylike-products-container track">
             {products.map((item) => (

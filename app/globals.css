@@ -362,7 +362,7 @@ span.text-red {
   display: flex;
   justify-content: space-between;
   width: 350px;
-  color: #324d67;
+  color: black;
 }
 .item-desc .bottom {
   margin-top: 60px;
