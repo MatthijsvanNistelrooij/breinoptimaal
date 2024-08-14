@@ -19,7 +19,39 @@ import pumpkinspice from "./pumpkin-spice.png"
 import choco from "./choco.png"
 import no_image from "./no_image.jpg"
 
+import product_package from "./product-package.png"
+
+import shopbutton from "./shopbutton.png"
+
+import background from "./background.png"
+import stock2 from "./stock2.png"
+import image122 from "./image122.png"
+import gradient_green from "./gradient_green.png"
+
+import capsule_bottle from "./capsule_bottle.png"
+import banner_marquee from "./banner_marquee.png"
+import stock from "./stock.png"
+import small_bottle from "./small_bottle.png"
+
+import contact_square from "./contact_square.png"
+import elipse from "./elipse.png"
+
+import divider from "./divider.png"
+
 export {
+  divider,
+  elipse,
+  contact_square,
+  small_bottle,
+  stock,
+  banner_marquee,
+  capsule_bottle,
+  gradient_green,
+  image122,
+  stock2,
+  background,
+  shopbutton,
+  product_package,
   vector,
   success,
   info,

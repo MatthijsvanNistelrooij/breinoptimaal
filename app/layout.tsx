@@ -1,10 +1,7 @@
-// app/layout.js
-
 import React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { StateContext } from "../context/StateContext"
-import { Navbar, Footer } from "../components"
 import { Toaster } from "react-hot-toast"
 import "./globals.css"
 
@@ -24,14 +21,22 @@ export default function RootLayout({
     <StateContext>
       <html lang="en">
         <head>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
         </head>
-        <body className={inter.className}>
-        <Navbar />
-          <div className="layout">
-            <Toaster />
-            <main className="main-container">{children}</main>
-          </div>
+        <body className={"font-poppins"}>
+          <Toaster />
+          {children}
         </body>
       </html>
     </StateContext>

@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/api/stripe/route.js"  ],
+, "app/api/stripe/route.js", "components/AddButton.jsx", "app/(root)/faq/page.jsx", "app/(root)/product/[slug]/page.jsx", "app/(root)/layout.tsx", "app/(root)/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]

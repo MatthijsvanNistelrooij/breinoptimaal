@@ -6,6 +6,9 @@ import {
   AiOutlinePlus,
   AiOutlineLeft,
   AiOutlineShopping,
+  AiFillDelete,
+  AiFillX,
+  AiOutlineArrowLeft,
 } from "react-icons/ai"
 import { TiDeleteOutline } from "react-icons/ti"
 import toast from "react-hot-toast"
@@ -27,15 +30,14 @@ const Cart = () => {
   } = useStateContext()
 
   const handleCheckout = async () => {
-
     const stripe = await getStripe()
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cartItems }), 
-    });
+      body: JSON.stringify({ cartItems }),
+    })
     if (response.statusCode === 500) return
 
     const data = await response.json()
@@ -45,15 +47,16 @@ const Cart = () => {
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
+      <div className="h-[100vh] w-[40vw] float-end bg-[#f7f7f2] p-5 pt-1 overflow-scroll">
         <button
           type="button"
-          className="cart-heading"
+          className="w-full mb-1 "
           onClick={() => setShowCart(false)}
         >
-          <AiOutlineLeft />
-          <span className="heading">Winkelmandje</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
+          <div className="flex flex-row">
+            <AiOutlineArrowLeft className="mt-2" />
+            <span className="text-sm font-light m-2">Terug naar winkelen</span>
+          </div>
         </button>
 
         {cartItems.length < 1 && (
@@ -72,49 +75,53 @@ const Cart = () => {
           </div>
         )}
 
-        <div className="product-container">
+        <div className="">
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
-              <div className="product" key={item._id}>
-                <img
-                  src={urlFor(item?.image[0]).url()}
-                  className="cart-product-image"
-                />
-                <div className="item-desc">
-                  <div className="flex top">
-                    <h5>{item.name}</h5>
-                    <h4>${item.price}</h4>
+              <div key={item._id}>
+                <div className="flex w-full justify-between mb-10 mt-10">
+                  <span className="text-black font-bold text-3xl">
+                    Winkelmandje
+                  </span>
+                  <span className="flex font-bold text-gray-500 mt-3">
+                    {totalQuantities} items
+                  </span>
+                </div>
+                <hr className="text-3xl" />
+                <div className="flex items-center justify-between p-5 font-bold">
+                  <div className="flex items-center">
+                    <img src={urlFor(item?.image[0]).url()} className="w-20" />
                   </div>
-                  <div className="flex bottom">
-                    <div>
-                      <p className="quantity-desc">
-                        <span
-                          className="minus"
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "dec")
-                          }
-                        >
-                          <AiOutlineMinus />
-                        </span>
-                        <span className="num" onClick="">
-                          {item.quantity}
-                        </span>
-                        <span
-                          className="plus"
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "inc")
-                          }
-                        >
-                          <AiOutlinePlus />
-                        </span>
-                      </p>
+                  <div className="flex items-center w-32 mx-2">{item.name}</div>
+                  <div className="flex items-center w-32 mx-2">
+                    <div className="flex items-center justify-between flex-1">
+                      <button
+                        className="flex items-center justify-center w-8 h-8 border border-gray-200 hover:shadow-lg"
+                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
+                      >
+                        <AiOutlineMinus />
+                      </button>
+                      <div className="flex items-center justify-center border border-gray-200 w-8 h-8 mx-2">
+                        {item.quantity}
+                      </div>
+                      <button
+                        className="flex items-center justify-center w-8 h-8 border border-gray-200 hover:shadow-lg"
+                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                      >
+                        <AiOutlinePlus />
+                      </button>
                     </div>
+                  </div>
+                  <div className="flex items-center mx-2">
+                    € {item.price} ,-
+                  </div>
+                  <div className="flex items-center mx-2">
                     <button
                       type="button"
-                      className="remove-item"
+                      className="flex items-center justify-center w-8 h-8 border border-gray-200 hover:shadow-lg hover:bg-red-200 hover:text-white"
                       onClick={() => onRemove(item)}
                     >
-                      <TiDeleteOutline />
+                      x
                     </button>
                   </div>
                 </div>
@@ -122,13 +129,18 @@ const Cart = () => {
             ))}
         </div>
         {cartItems.length >= 1 && (
-          <div className="cart-bottom">
-            <div className="total">
-              <h3>Subtotaal:</h3>
-              <h3>${totalPrice}</h3>
+          <div className="">
+            <hr />
+            <div className="flex flex-row font-bold gap-20 text-2xl p-10 pl-5">
+              <h3>TOTAAL</h3>
+              <h3>€ {totalPrice},00</h3>
             </div>
-            <div className="btn-container">
-              <button type="button" className="btn" onClick={handleCheckout}>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                className="p-4 bg-black text-white mt-10 w-80 hover:shadow-lg"
+                onClick={handleCheckout}
+              >
                 Betaal met Stripe
               </button>
             </div>
