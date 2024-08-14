@@ -9,7 +9,7 @@ const Convinced = ({ title, subTitle }) => {
     <section className="rounded-custom bg-[#f7f7f2] text-[#1E285F] border border-gray-100 relative z-10 max-container p-32 pt-10 -mb-12">
       <div className="relative p-10 lg:p-20 lg:pt-5 bg-[#FED7AA] rounded-custom min-h-[440px] flex flex-col lg:flex-row items-center justify-center gap-8">
         <div className="flex flex-col items-center lg:items-start gap-4 lg:gap-6 lg:w-1/2">
-          <h3 className="text-4xl lg:text-5xl font-semibold text-[#1E285F] text-center lg:text-left w-full">
+          <h3 className="text-5xl lg:text-6xl font-semibold text-[#1E285F] text-center lg:text-left w-full">
             {title}
           </h3>
           <h3 className="text-xl lg:text-2xl text-black text-center lg:text-left mb-8">
