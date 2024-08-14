@@ -7,7 +7,7 @@ const BgImage2 = ({ title, button }) => {
   return (
     <>
       <section className="max-container">
-        <div className="relative w-full mx-auto overflow-hidden h-[800px] -mt-40">
+        <div className="relative w-full mx-auto overflow-hidden h-[700px] -mt-40">
           <Image
             src={background}
             alt="banner_image"
