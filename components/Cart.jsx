@@ -76,12 +76,17 @@ const Cart = () => {
         )}
 
         <div className="">
-          <div className="flex w-full justify-between mb-10 mt-10">
-            <span className="text-black font-bold text-3xl">Winkelmandje</span>
-            <span className="flex font-bold text-gray-500 mt-3">
-              {totalQuantities} items
-            </span>
-          </div>
+          {cartItems.length >= 1 && (
+            <div className="flex w-full justify-between mb-10 mt-10">
+              <span className="text-black font-bold text-3xl">
+                Winkelmandje
+              </span>
+              <span className="flex font-bold text-gray-500 mt-3">
+                {totalQuantities} items
+              </span>
+            </div>
+          )}
+
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
               <div key={item._id}>
